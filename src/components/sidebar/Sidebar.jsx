@@ -81,10 +81,12 @@ const Sidebar = () => {
             <AccountCircleOutlinedIcon className="icon" />
             <span>Profile</span>
           </li>
+          <Link to="/login">
           <li>
             <ExitToAppIcon className="icon" />
-            <span onClick={e=>{navigate("/login")}}>Logout</span>
+            <span>Logout</span>
           </li>
+          </Link>
         </ul>
       </div>
       <div className="bottom">

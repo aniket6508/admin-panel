@@ -3,25 +3,25 @@ export const userInputs = [
       id: "username",
       label: "Username",
       type: "text",
-      placeholder: "john_doe",
+      placeholder: "koi toh naam hoga naa instagram pe",
     },
     {
       id: "displayname",
       label: "Name and surname",
       type: "text",
-      placeholder: "John Doe",
+      placeholder: "asli naam bhi hoga koi",
     },
     {
       id: "email",
       label: "Email",
       type: "mail",
-      placeholder: "john_doe@gmail.com",
+      placeholder: "bole_to_asli_naam@gmail.com",
     },
     {
       id: "phone",
       label: "Phone",
       type: "text",
-      placeholder: "+1 234 567 89",
+      placeholder: "kasam se leak nii karenge",
     },
     {
       id: "password",
@@ -32,13 +32,13 @@ export const userInputs = [
       id: "address",
       label: "Address",
       type: "text",
-      placeholder: "Elton St. 216 NewYork",
+      placeholder: "bole to apna placeholder dedo aab",
     },
     {
       id: "country ",
       label: "Country",
       type: "text",
-      placeholder: "USA",
+      placeholder: "VPN wala country matt dena",
     },
   ];
   

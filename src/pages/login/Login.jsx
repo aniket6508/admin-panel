@@ -17,19 +17,18 @@ const {dispatch}=useContext(AuthContext)
 const handleLogin = (e) => {
   e.preventDefault();
   signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed up 
-    const user = userCredential.user;
-    dispatch({type:"LOGIN",payload:user});
-    navigate("/");
-    // ...
-  })
-  .catch((error) => {
-    console.error(error);
+    .then((userCredential) => {
+      const user = userCredential.user;
+      dispatch({ type: "LOGIN", payload: user });
+      navigate("/");
+      setError(false); // Reset error state on successful login
+    })
+    .catch((error) => {
+      console.error(error);
       setError(true);
-  });
+    });
+};
 
-}
 
   return (
     <div className="login">
