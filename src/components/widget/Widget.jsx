@@ -6,13 +6,13 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
 import { useEffect, useState } from "react";
 import { db } from "../../firebase";
-import { where,collection,query, getDocs } from "firebase/firestore";
+import { where, collection, query, getDocs } from "firebase/firestore";
 
 const Widget = ({ type }) => {
-const [amount, setAmount]=useState(100);
-const [diff, setDiff]=useState(100);
-  //temporary
-let data;
+  const [amount, setAmount] = useState(0);
+  const [diff, setDiff] = useState(0);
+
+  let data;
 
   switch (type) {
     case "user":
@@ -29,6 +29,7 @@ let data;
             }}
           />
         ),
+        query: "users", 
       };
       break;
     case "order":
@@ -45,6 +46,7 @@ let data;
             }}
           />
         ),
+        query: "orders", 
       };
       break;
     case "earning":
@@ -58,6 +60,7 @@ let data;
             style={{ backgroundColor: "rgba(0, 128, 0, 0.2)", color: "green" }}
           />
         ),
+        query: "earnings", 
       };
       break;
     case "balance":
@@ -74,6 +77,7 @@ let data;
             }}
           />
         ),
+        query: "balance", 
       };
       break;
     default:
@@ -102,12 +106,14 @@ let data;
 
       setAmount(lastMonthData.docs.length);
       setDiff(
-        ((lastMonthData.docs.length - prevMonthData.docs.length) / prevMonthData.docs.length) *
+        ((lastMonthData.docs.length - prevMonthData.docs.length) /
+          prevMonthData.docs.length) *
           100
       );
     };
+
     fetchData();
-  }, []);
+  }, [data.query]); 
 
   return (
     <div className="widget">
